@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apotek Intan - Solusi Kesehatan Anda (Murni CSS)</title>
+    
+    <style>
+        /* Impor Font (Tetap CSS) */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
+        /* Reset dan Dasar Styling */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb; /* bg-gray-50 */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Container & Header */
+        .header {
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* shadow-md */
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            height: 80px;
+        }
+        .container {
+            max-width: 1280px; /* max-w-7xl */
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        /* 1. CSS UTAMA UNTUK NAVIGATION TARGET */
+        /* Sembunyikan semua halaman secara default */
+        .page-content {
+            display: none;
+            padding-top: 2.5rem; /* py-10 / padding-top for spacing */
+        }
+        
+        /* Tampilkan halaman yang ditargetkan oleh URL hash */
+        .page-content:target {
+            display: block;
+        }
+
+        /* 2. TAMPILAN AWAL: Tampilkan Beranda jika tidak ada target */
+        #beranda {
+            display: block;
+        }
+        .page-content:target ~ #beranda {
+            display: none; /* Sembunyikan default jika ada target lain */
+        }
+
+        /* 3. STYLE UNTUK LINK AKTIF (berbasis target) - Murni Visual Hover */
+        .nav-link {
+            color: #4b5563; /* text-gray-600 */
+            padding-top: 8px;
+            padding-bottom: 8px;
+            text-decoration: none;
+            transition: color 0.15s ease-in-out;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-link:hover {
+            color: #10B981; /* hover:text-emerald-500 */
+            border-bottom: 2px solid #10B981; /* Memberikan indikasi 'aktif' */
+        }
+
+        /* 4. CSS UNTUK MENU MOBILE (Checkbox Hack) */
+        #menu-toggle {
+            display: none; /* Sembunyikan checkbox utama */
+        }
+        
+        #menu-button {
+            display: block; /* Default untuk mobile */
+            padding: 8px;
+            cursor: pointer;
+        }
+        
+        /* Tampilkan menu mobile ketika checkbox dicentang */
+        #mobile-menu {
+            display: none;
+            background-color: white;
+            padding: 8px 0 12px 0;
+        }
+        #menu-toggle:checked ~ #mobile-menu {
+            display: block;
+        }
+
+        /* Desktop Layout */
+        @media (min-width: 768px) {
+            #menu-button, #mobile-menu {
+                display: none !important;
+            }
+            .nav-desktop {
+                display: flex;
+                gap: 24px; /* space-x-6 */
+            }
+        }
+        
+        /* Styling Umum Konten */
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #111827; /* text-gray-900 */
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 1rem;
+            margin-bottom: 2.5rem;
+        }
+        .card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        .button-primary {
+            display: inline-block;
+            background-color: #10B981; /* bg-emerald-500 */
+            color: white;
+            font-weight: 600;
+            padding: 12px 32px;
+            border-radius: 9999px; /* rounded-full */
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        .button-primary:hover {
+            background-color: #059669; /* hover:bg-emerald-600 */
+        }
+
+        /* Grid Layout */
+        .grid-3-cols {
+            display: grid;
+            gap: 1.5rem;
+        }
+        @media (min-width: 768px) {
+            .grid-3-cols {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
